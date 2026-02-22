@@ -18,10 +18,11 @@ cd ai-vox
 #### Claude Code
 
 ```bash
-make install-claude PROJECT=/path/to/your/project
+make install-claude                          # Global install
+make install-claude PROJECT=/path/to/project  # Project-level install
 ```
 
-This installs voice definitions to `~/.ai-vox/tones/` and copies `CLAUDE.md` to your project.
+This installs voice definitions to `~/.ai-vox/tones/` and copies the vox command to `~/.claude/commands/` (global) or your project.
 
 #### OpenCode
 
@@ -34,7 +35,8 @@ Done! Installs vox rules directly to `~/.config/opencode/rules/vox.md`.
 #### Warp
 
 ```bash
-make install-warp PROJECT=/path/to/your/project
+make install-warp                          # Global install
+make install-warp PROJECT=/path/to/project  # Project-level install
 ```
 
 ### Step 3: Try it!
@@ -80,10 +82,11 @@ cd ai-vox
 #### Claude Code
 
 ```bash
-make install-claude PROJECT=/你的项目路径
+make install-claude                          # 全局安装
+make install-claude PROJECT=/你的项目路径      # 项目级安装
 ```
 
-这会把声音定义安装到 `~/.ai-vox/tones/`，并复制 `CLAUDE.md` 到你的项目。
+这会把声音定义安装到 `~/.ai-vox/tones/`，并复制 vox 命令到 `~/.claude/commands/`（全局）或你的项目。
 
 #### OpenCode
 
@@ -96,7 +99,8 @@ make install-opencode
 #### Warp
 
 ```bash
-make install-warp PROJECT=/你的项目路径
+make install-warp                          # 全局安装
+make install-warp PROJECT=/你的项目路径      # 项目级安装
 ```
 
 ### 第三步：试试！

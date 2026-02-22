@@ -12,9 +12,9 @@ help: ## Show this help
 	@echo ""
 	@echo "Usage:"
 	@echo "  make install                Install tones to ~/.ai-vox/tones/"
-	@echo "  make install-claude  PROJECT=.  Install for Claude Code (project-level)"
+	@echo "  make install-claude            Install for Claude Code (global, or PROJECT=. for project-level)"
 	@echo "  make install-opencode          Install for OpenCode"
-	@echo "  make install-warp    PROJECT=.  Install for Warp (project-level)"
+	@echo "  make install-warp              Install for Warp (global, or PROJECT=. for project-level)"
 	@echo "  make uninstall                 Remove ~/.ai-vox/"
 	@echo "  make list                      List installed voices"
 	@echo ""
@@ -31,14 +31,18 @@ install: ## Install tones to ~/.ai-vox/tones/
 
 # --- Platform targets ---
 
-install-claude: install ## Install for Claude Code (requires PROJECT=<path>)
-ifndef PROJECT
-	$(error Usage: make install-claude PROJECT=/path/to/your/project)
-endif
+install-claude: install ## Install for Claude Code (global or project-level with PROJECT=<path>)
+ifdef PROJECT
 	@mkdir -p $(PROJECT)/.claude/commands
 	@cp $(REPO_DIR)integrations/claude/commands/vox.md $(PROJECT)/.claude/commands/vox.md
 	@echo "✓ Installed /vox command to $(PROJECT)/.claude/commands/vox.md"
 	@echo "  Done! Use /vox commands in Claude Code."
+else
+	@mkdir -p $(HOME)/.claude/commands
+	@cp $(REPO_DIR)integrations/claude/commands/vox.md $(HOME)/.claude/commands/vox.md
+	@echo "✓ Installed /vox command to ~/.claude/commands/vox.md (global)"
+	@echo "  Done! Use /vox commands in Claude Code."
+endif
 
 OPENCODE_CONFIG = $(HOME)/.config/opencode/opencode.json
 VOX_TEMPLATE = Read and follow ~/.ai-vox/tones/$$ARGUMENTS.md as your voice personality. If $$ARGUMENTS is list, list files in ~/.ai-vox/tones/. If reset, drop voice personality.
@@ -62,14 +66,18 @@ install-opencode: install ## Install for OpenCode
 	@echo "✓ Installed /vox command to ~/.config/opencode/commands/vox.md"
 	@echo "  Done! Open OpenCode and use /vox commands."
 
-install-warp: install ## Install for Warp (requires PROJECT=<path>)
-ifndef PROJECT
-	$(error Usage: make install-warp PROJECT=/path/to/your/project)
-endif
+install-warp: install ## Install for Warp (global or project-level with PROJECT=<path>)
+ifdef PROJECT
 	@mkdir -p $(PROJECT)/.warp/rules
 	@cp $(REPO_DIR)integrations/warp/rules.md $(PROJECT)/.warp/rules/vox.md
 	@echo "✓ Copied rules to $(PROJECT)/.warp/rules/vox.md"
 	@echo "  Done! Use /vox commands in Warp."
+else
+	@mkdir -p $(HOME)/.warp/rules
+	@cp $(REPO_DIR)integrations/warp/rules.md $(HOME)/.warp/rules/vox.md
+	@echo "✓ Copied rules to ~/.warp/rules/vox.md (global)"
+	@echo "  Done! Use /vox commands in Warp."
+endif
 
 # --- Utilities ---
 

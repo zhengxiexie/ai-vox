@@ -103,7 +103,8 @@ cd ai-vox
 ### Claude Code
 
 ```bash
-make install-claude PROJECT=/path/to/your/project
+make install-claude                          # Global install
+make install-claude PROJECT=/path/to/project  # Project-level install
 ```
 
 ### OpenCode
@@ -115,7 +116,8 @@ make install-opencode
 ### Warp
 
 ```bash
-make install-warp PROJECT=/path/to/your/project
+make install-warp                          # Global install
+make install-warp PROJECT=/path/to/project  # Project-level install
 ```
 
 Voice definitions are installed once to `~/.ai-vox/tones/` and shared across all platforms.
@@ -144,9 +146,9 @@ Voice definitions are installed once to `~/.ai-vox/tones/` and shared across all
 
 ```
 ~/.ai-vox/tones/                    ← Voice definitions installed here (shared)
-project/CLAUDE.md                   ← Lightweight index + routing (Claude Code)
+~/.claude/commands/vox.md           ← Lightweight index + routing (Claude Code, global)
 ~/.config/opencode/rules/vox.md     ← Lightweight index + routing (OpenCode)
-project/.warp/rules/vox.md          ← Lightweight index + routing (Warp)
+~/.warp/rules/vox.md                ← Lightweight index + routing (Warp, global)
 ```
 
 Integration files only contain a voice index and auto-routing rules. When you `/vox <voice>`, the AI reads the full personality from `~/.ai-vox/tones/<voice>.md` on demand. This keeps context minimal as voices grow.

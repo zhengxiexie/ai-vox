@@ -103,7 +103,8 @@ cd ai-vox
 ### Claude Code
 
 ```bash
-make install-claude PROJECT=/你的项目路径
+make install-claude                          # 全局安装
+make install-claude PROJECT=/你的项目路径      # 项目级安装
 ```
 
 ### OpenCode
@@ -115,7 +116,8 @@ make install-opencode
 ### Warp
 
 ```bash
-make install-warp PROJECT=/你的项目路径
+make install-warp                          # 全局安装
+make install-warp PROJECT=/你的项目路径      # 项目级安装
 ```
 
 声音定义统一安装到 `~/.ai-vox/tones/`，所有平台共享。
@@ -144,9 +146,9 @@ make install-warp PROJECT=/你的项目路径
 
 ```
 ~/.ai-vox/tones/                    ← 声音定义安装在这里（共享）
-project/CLAUDE.md                   ← 轻量索引 + 路由（Claude Code）
+~/.claude/commands/vox.md           ← 轻量索引 + 路由（Claude Code，全局）
 ~/.config/opencode/rules/vox.md     ← 轻量索引 + 路由（OpenCode）
-project/.warp/rules/vox.md          ← 轻量索引 + 路由（Warp）
+~/.warp/rules/vox.md                ← 轻量索引 + 路由（Warp，全局）
 ```
 
 集成文件只包含声音索引和自动路由规则。当你执行 `/vox <voice>` 时，AI 会按需从 `~/.ai-vox/tones/<voice>.md` 加载完整人格。随着声音增多，上下文也不会膨胀。
