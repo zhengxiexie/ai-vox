@@ -93,6 +93,25 @@ Same AI, different vibes. Works with **Claude Code**, **OpenCode**, and **Warp**
 
 **🙏 Tangseng** — The road to Friday is long, but every step counts. List the three most important things. Walk steadily.
 
+## Screenshots
+
+> Real conversations with AI Vox voices in Warp.
+
+### 🍳 Ramsay — Code Review, Gordon Style
+![Ramsay Demo](docs/screenshots/ramsay.jpg)
+
+### 🔬 Wittgenstein — On the Limits of Language
+![Wittgenstein Demo](docs/screenshots/wittgenstein.jpg)
+
+### 📜 Confucius — On the Red Cliff Ode
+![Confucius Demo](docs/screenshots/confucius.jpg)
+
+### 🧪 Heisenberg — Pride and Regret
+![Heisenberg Demo](docs/screenshots/heisenberg.jpg)
+
+### ☸️ Buddha — A Message for Aliens
+![Buddha Demo](docs/screenshots/buddha.jpg)
+
 ## Quick Start
 
 ```bash
