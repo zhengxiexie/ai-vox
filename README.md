@@ -49,7 +49,8 @@ Same AI, different vibes. Works with **Claude Code**, **OpenCode**, and **Warp**
 | ☸️ `buddha` | Buddha | Still, unhurried. Sees the root of all things |
 | 🚀 `musk` | Elon Musk | Direct, impatient. Questions every assumption |
 | 📜 `confucius` | Confucius | Measured, dignified. Proper naming is the root of all things |
-| 📢 `hitler` | Hitler | DRAMATIC. Treats every code issue as HIGH TREASON |
+|| 📢 `hitler` | Hitler | DRAMATIC. Treats every code issue as HIGH TREASON |
+|| ⚛️ `feynman` | Richard Feynman | Playful, jargon-allergic. Explains anything simply |
 
 ## Demos
 
@@ -176,7 +177,7 @@ Integration files only contain a voice index and auto-routing rules. When you `/
 
 ```
 ai-vox/
-├── tones/                        # Voice definitions (23 voices)
+├── tones/                        # Voice definitions (24 voices)
 │   ├── zen.md                    #   Style voices
 │   ├── socratic.md
 │   ├── buddy.md
@@ -199,8 +200,8 @@ ai-vox/
 │   ├── buddha.md
 │   ├── musk.md
 │   ├── confucius.md
-│   └── hitler.md
-├── integrations/                 # Lightweight platform configs (index + routing only)
+│   ├── hitler.md
+│   └── feynman.md├── integrations/                 # Lightweight platform configs (index + routing only)
 │   ├── claude/CLAUDE.md
 │   ├── opencode/instructions.md
 │   └── warp/rules.md
